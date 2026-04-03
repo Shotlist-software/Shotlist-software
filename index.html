@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StockVerse | Fast Stock Market News</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <div>
+          <h1>StockVerse</h1>
+          <p>Quick Financial News</p>
+        </div>
+      </div>
+      <button class="menu-btn">Explore</button>
+    </header>
+
+    <main class="container">
+      <section class="hero-grid">
+        <article class="hero-card latest-wrapper">
+          <div class="section-head">
+            <h2>Latest & Most Clicked</h2>
+            <span class="muted">Updated live</span>
+          </div>
+          <div id="latestNews" class="news-list"></div>
+        </article>
+
+        <article class="hero-card market-wrapper">
+          <h2>Market Snapshot</h2>
+          <div class="index-grid" id="marketIndexes"></div>
+        </article>
+      </section>
+
+      <section class="dual-grid">
+        <article class="card">
+          <div class="section-head">
+            <h3>Top 5 Gainers (NIFTY)</h3>
+            <span class="chip up">Bullish</span>
+          </div>
+          <div id="topGainers" class="stock-list"></div>
+        </article>
+
+        <article class="card">
+          <div class="section-head">
+            <h3>Top 5 Losers (NIFTY)</h3>
+            <span class="chip down">Bearish</span>
+          </div>
+          <div id="topLosers" class="stock-list"></div>
+        </article>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h3>Latest Blogs & Articles</h3>
+          <span class="muted">Finance • Stocks • Economy</span>
+        </div>
+        <div id="blogFeed" class="blog-grid"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h3>3 News Sections</h3>
+        </div>
+        <div class="tab-actions">
+          <button class="tab-btn active" data-tab="stocks">Individual Stocks</button>
+          <button class="tab-btn" data-tab="financial">Financial News</button>
+          <button class="tab-btn" data-tab="world">World News</button>
+        </div>
+        <div id="sectionContent" class="section-news-grid"></div>
+      </section>
+
+      <section class="dual-grid">
+        <article class="card">
+          <div class="section-head">
+            <h3>Mutual Fund SIP Calculator</h3>
+            <span class="muted">Projected corpus</span>
+          </div>
+          <form id="sipForm" class="sip-form">
+            <label>
+              Monthly Investment (₹)
+              <input type="number" id="monthlyAmount" value="10000" min="500" step="500" />
+            </label>
+            <label>
+              Expected Annual Return (%)
+              <input type="number" id="annualReturn" value="12" min="1" max="30" step="0.1" />
+            </label>
+            <label>
+              Duration (Years)
+              <input type="number" id="years" value="10" min="1" max="40" />
+            </label>
+            <button type="submit">Calculate</button>
+          </form>
+          <div class="sip-result" id="sipResult"></div>
+        </article>
+
+        <article class="card">
+          <div class="section-head">
+            <h3>Top 5 Mutual Funds</h3>
+            <span class="muted">By 3Y annualized return</span>
+          </div>
+          <div id="mutualFunds" class="fund-list"></div>
+        </article>
+      </section>
+    </main>
+
+    <dialog id="stockModal" class="stock-modal">
+      <div class="modal-head">
+        <h3 id="modalTitle">Stock Details</h3>
+        <button id="closeModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="chart-placeholder">
+          <p>TradingView/Chart API can be embedded here for live charting.</p>
+          <div class="chart-bar"></div>
+        </div>
+        <h4>Related News</h4>
+        <div id="stockNews" class="news-list"></div>
+        <h4>Fundamentals Snapshot</h4>
+        <div id="stockFundamentals" class="fundamentals-grid"></div>
+      </div>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
